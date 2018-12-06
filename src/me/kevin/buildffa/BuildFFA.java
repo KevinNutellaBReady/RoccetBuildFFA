@@ -26,7 +26,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class BuildFFA extends JavaPlugin implements Listener {
     
-     public static String prefix = "§6§lBuildFFA §7●";
+     public static String prefix = "§6§lBuildFFA §7● ";
      public static CloudAPI cloud;
      public static CloudServer cloudServer;
 
