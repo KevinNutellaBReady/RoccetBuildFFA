@@ -1,0 +1,4 @@
+name: BuildFFA
+version: 1.0
+author: Kevin
+main: me.kevin.buildffa.BuildFFA

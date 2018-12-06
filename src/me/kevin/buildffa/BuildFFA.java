@@ -6,8 +6,8 @@
 package me.kevin.buildffa;
 
 import de.dytanic.cloudnet.api.CloudAPI;
-import de.dytanic.cloudnet.api.player.PermissionProvider;
 import de.dytanic.cloudnet.bridge.CloudServer;
+import de.dytanic.cloudnet.lib.server.ServerState;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
