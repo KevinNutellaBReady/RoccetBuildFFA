@@ -38,8 +38,7 @@ public class Joinlistener implements Listener {
         meta.addEnchant(Enchantment.KNOCKBACK, 1, true);
         meta.setDisplayName("§bKnüppel");
         stick.setItemMeta(meta);
-         p.getInventory().setItem(1, stick);
-        stick.getItemMeta().addEnchant(Enchantment.KNOCKBACK, 1, true);
+        p.getInventory().setItem(1, stick);
         p.getInventory().setItem(3, new ItemManager("§bEnderpearl", Material.ENDER_PEARL, (byte)0, 1, "").build());
         p.getInventory().setItem(4, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
         p.getInventory().setItem(5, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
