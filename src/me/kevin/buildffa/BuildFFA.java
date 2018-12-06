@@ -9,7 +9,6 @@ import de.dytanic.cloudnet.api.CloudAPI;
 import de.dytanic.cloudnet.bridge.CloudServer;
 import de.dytanic.cloudnet.lib.server.ServerState;
 import me.kevin.listener.Joinlistener;
-import me.kevin.managers.ServerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -26,10 +25,11 @@ public class BuildFFA extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        ServerManager.ManageServer();
         Bukkit.getConsoleSender().sendMessage("RoccetBuildFFA aktiviert");
         cloud = CloudAPI.getInstance();
-        cloudServer = CloudServer.getInstance();
+        cloudServer = CloudServer.getInstance();  
+        BuildFFA.getCloudServer().setServerStateAndUpdate(ServerState.INGAME);
+        BuildFFA.getCloudServer().setMaxPlayers(50);
         
         registerCommands();
         registerEvents();
