@@ -5,26 +5,24 @@
  */
 package me.kevin.listener;
 
+import me.kevin.buildffa.BuildFFA;
 import me.kevin.managers.ItemManager;
-import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 
 /**
  *
  * @author haral
  */
-public class Joinlistener implements Listener {
-   
+public class DeathListener implements Listener {
     @EventHandler
-    public void onJoin(PlayerJoinEvent e) {
-        e.setJoinMessage(null);
-        Player p = e.getPlayer();
-        p.setGameMode(GameMode.SURVIVAL);
+    public void onDeath(PlayerDeathEvent e) {
+        Player p = e.getEntity();
+        e.setDeathMessage(BuildFFA.getPrefix()  + "§7Der Spieler §b " + p.getName() + " §7wurde von §b " + p.getKiller() + " §7getötet");
         p.setHealth(20);
         p.setMaxHealth(20);
         p.setFoodLevel(20);
@@ -41,7 +39,6 @@ public class Joinlistener implements Listener {
         p.getInventory().setItem(22, new ItemManager("§cZurück", Material.SLIME_BALL, (byte)0, 64, "").build());
         p.chat("/warp spawn");
         
-        
     }
-   
+    
 }
