@@ -28,9 +28,9 @@ public class BuildFFA extends JavaPlugin implements Listener {
         Bukkit.getConsoleSender().sendMessage("RoccetBuildFFA aktiviert");
         cloud = CloudAPI.getInstance();
         cloudServer = CloudServer.getInstance();  
-        BuildFFA.getCloudServer().setServerStateAndUpdate(ServerState.INGAME);
-        BuildFFA.getCloudServer().setMaxPlayers(50);
-        
+        getCloudServer().setServerStateAndUpdate(ServerState.INGAME);
+        getCloudServer().setMaxPlayers(50);
+       
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
     
