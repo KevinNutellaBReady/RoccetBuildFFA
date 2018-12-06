@@ -5,6 +5,9 @@
  */
 package me.kevin.listener;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import me.kevin.buildffa.BuildFFA;
 import me.kevin.managers.ItemManager;
 import org.bukkit.Material;
@@ -13,6 +16,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 /**
  *
@@ -22,14 +28,25 @@ public class DeathListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
         Player p =  (Player) e.getEntity();
-        e.setDeathMessage(BuildFFA.getPrefix()  + "§7Der Spieler §b " + p.getName() + " §7wurde von §b " + p.getKiller().getName() + " §7getötet");
+        if(p.getKiller() == null) {
+             e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7hat sich das leben genommen");
+        } else if(p.getKiller() != null) {
+             e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7wurde von §b " + p.getKiller().getName() + " §7getötet");
+        }
+        
         p.setHealth(20);
         p.setMaxHealth(20);
         p.setFoodLevel(20);
         p.getInventory().clear();
         p.getInventory().setItem(0, new ItemManager("§bSchwert", Material.GOLD_SWORD, (byte)0, 1, Enchantment.DURABILITY).build());
         p.getInventory().setItem(2, new ItemManager("§bAngel", Material.FISHING_ROD, (byte)0, 1, "").build());
-        p.getInventory().setItem(1, new ItemManager("§bKnüppel", Material.STICK, (byte)0, 1, Enchantment.KNOCKBACK).build());
+        ItemStack stick = new ItemStack(Material.STICK);
+        ItemMeta meta = stick.getItemMeta();
+        meta.addEnchant(Enchantment.KNOCKBACK, 1, true);
+        meta.setDisplayName("§bKnüppel");
+        stick.setItemMeta(meta);
+         p.getInventory().setItem(1, stick);
+        stick.getItemMeta().addEnchant(Enchantment.KNOCKBACK, 1, true);
         p.getInventory().setItem(3, new ItemManager("§bEnderpearl", Material.ENDER_PEARL, (byte)0, 1, "").build());
         p.getInventory().setItem(4, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
         p.getInventory().setItem(5, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
