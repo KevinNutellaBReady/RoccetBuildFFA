@@ -8,6 +8,7 @@ package me.kevin.buildffa;
 import de.dytanic.cloudnet.api.CloudAPI;
 import de.dytanic.cloudnet.bridge.CloudServer;
 import de.dytanic.cloudnet.lib.server.ServerState;
+import me.kevin.listener.Joinlistener;
 import me.kevin.managers.ServerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -44,6 +45,8 @@ public class BuildFFA extends JavaPlugin implements Listener {
     public void registerEvents() {
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
+    
+    Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
     
     
     }
