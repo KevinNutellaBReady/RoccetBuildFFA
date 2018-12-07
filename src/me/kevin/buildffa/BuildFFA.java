@@ -5,18 +5,14 @@
  */
 package me.kevin.buildffa;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import de.dytanic.cloudnet.api.CloudAPI;
 import de.dytanic.cloudnet.bridge.CloudServer;
 import de.dytanic.cloudnet.lib.server.ServerState;
-import java.io.FileWriter;
-import java.io.IOException;
 import me.kevin.listener.DeathListener;
 import me.kevin.listener.Joinlistener;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -29,6 +25,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
      public static String prefix = "§6§lBuildFFA §7● ";
      public static CloudAPI cloud;
      public static CloudServer cloudServer;
+     public static BuildFFA instance;
 
     @Override
     public void onEnable() {
@@ -38,6 +35,8 @@ public class BuildFFA extends JavaPlugin implements Listener {
         getCloudServer().setServerStateAndUpdate(ServerState.LOBBY);
         getCloudServer().setMaxPlayers(50);
        
+        instance = this;
+        
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
     
@@ -60,6 +59,10 @@ public class BuildFFA extends JavaPlugin implements Listener {
 
     public static String getPrefix() {
         return prefix;
+    }
+
+    public static BuildFFA getInstance() {
+        return instance;
     }
      
     
