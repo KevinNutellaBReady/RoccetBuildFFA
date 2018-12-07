@@ -20,30 +20,35 @@ import org.bukkit.event.block.BlockPlaceEvent;
  * @author haral
  */
 public class Placelistener implements Listener {
-    @EventHandler
-    public void onPlace(BlockPlaceEvent e) {
-        final Block block = e.getBlockPlaced();
-        Player p = e.getPlayer();
-        if(p.getGameMode() == GameMode.CREATIVE) {
-            
-        } else {
-            if(block.equals(Material.SANDSTONE)) {
-            Bukkit.getScheduler().runTaskLater(BuildFFA.getInstance(), new Runnable() {
+     @EventHandler
+  public void onPlace(BlockPlaceEvent e) {
+    Player p = e.getPlayer();
+    final Block block = e.getBlockPlaced();
+    if (block.getType().equals(Material.SANDSTONE)) {
+      double Y = p.getLocation().getY();
+        Bukkit.getScheduler().scheduleSyncDelayedTask(BuildFFA.getInstance(), new Runnable()
+        {
+          @Override
+          public void run() {
+            block.setType(Material.RED_SANDSTONE);
+            Bukkit.getScheduler().scheduleSyncDelayedTask(BuildFFA.getInstance(), new Runnable()
+            {
 
-                @Override
-                public void run() {
-                    block.setType(Material.REDSTONE_BLOCK);
-                }
-            }, 20*5);
-            Bukkit.getScheduler().runTaskLater(BuildFFA.getInstance(), new Runnable() {
-
-                @Override
-                public void run() {
-                    block.setType(Material.AIR);
-                }
-            }, 20*3);
-        }
-        }
+              @Override
+              public void run() { 
+                  block.setType(Material.AIR); 
+              } 
+            }, 60L); 
+          } 
+        }, 60L);
+      {
+        e.setCancelled(true);
+      }
+    } else if (p.getGameMode().equals(GameMode.CREATIVE)) {
+      e.setCancelled(false);
+    } else {
+      e.setCancelled(true);
     }
+  }
     
 }
