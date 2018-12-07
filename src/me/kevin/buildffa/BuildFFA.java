@@ -10,6 +10,8 @@ import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import de.dytanic.cloudnet.api.CloudAPI;
 import de.dytanic.cloudnet.bridge.CloudServer;
 import de.dytanic.cloudnet.lib.server.ServerState;
+import me.kevin.commands.setHigh;
+import me.kevin.listener.Breaklistener;
 import me.kevin.listener.DeathListener;
 import me.kevin.listener.Joinlistener;
 import me.kevin.listener.Placelistener;
@@ -38,12 +40,15 @@ public class BuildFFA extends JavaPlugin implements Listener {
        
         instance = this;
         
+        getCommand("sethigh").setExecutor(new setHigh(this));
+        
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
     
     Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
     Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
     Bukkit.getPluginManager().registerEvents(new Placelistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Breaklistener(), this);
    }
 
     @Override
@@ -65,6 +70,11 @@ public class BuildFFA extends JavaPlugin implements Listener {
 
     public static BuildFFA getInstance() {
         return instance;
+    }
+    public void loadConfig() {
+     getConfig().options().copyDefaults(true);
+        saveConfig();
+     
     }
      
     
