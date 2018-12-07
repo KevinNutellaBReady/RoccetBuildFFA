@@ -41,14 +41,10 @@ public class Placelistener implements Listener {
             }, 60L); 
           } 
         }, 60L);
-      {
-        e.setCancelled(true);
-      }
+      
     } else if (p.getGameMode().equals(GameMode.CREATIVE)) {
       e.setCancelled(false);
-    } else {
-      e.setCancelled(true);
-    }
+    } 
   }
     
 }
