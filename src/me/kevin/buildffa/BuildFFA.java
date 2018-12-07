@@ -13,6 +13,7 @@ import de.dytanic.cloudnet.lib.server.ServerState;
 import me.kevin.commands.setHigh;
 import me.kevin.listener.Breaklistener;
 import me.kevin.listener.DeathListener;
+import me.kevin.listener.Highlistener;
 import me.kevin.listener.Joinlistener;
 import me.kevin.listener.Placelistener;
 import org.bukkit.Bukkit;
@@ -51,6 +52,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
     Bukkit.getPluginManager().registerEvents(new Placelistener(), this);
     Bukkit.getPluginManager().registerEvents(new Breaklistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Highlistener(), this);
    }
 
     @Override
@@ -75,7 +77,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
     }
     public void loadConfig() {
      getConfig().options().copyDefaults(true);
-        saveConfig();
+     saveConfig();
      
     }
      

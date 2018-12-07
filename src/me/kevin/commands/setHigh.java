@@ -24,7 +24,7 @@ public class setHigh implements CommandExecutor {
     
     
     
-    double high = 0;
+    public static double high = 0;
 
     @Override
     public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
@@ -33,10 +33,10 @@ public class setHigh implements CommandExecutor {
             if(p.hasPermission("bffa.sethigh")) {
                 double y = p.getLocation().getY();
                 
-                high = 0;
+                high = y;
                 
-                plugin.getConfig().set("sethigh", y);
-                
+                plugin.getConfig().addDefault("sethigh", y);
+                plugin.saveConfig();
                 p.sendMessage("Höhe gesetzt");
                 
                 
