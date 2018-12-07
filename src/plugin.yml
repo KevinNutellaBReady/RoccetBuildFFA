@@ -3,3 +3,5 @@ version: 1.0
 author: Kevin
 depend: [CloudNetAPI]
 main: me.kevin.buildffa.BuildFFA
+commands:
+    sethigh:
