@@ -12,6 +12,7 @@ import de.dytanic.cloudnet.bridge.CloudServer;
 import de.dytanic.cloudnet.lib.server.ServerState;
 import me.kevin.listener.DeathListener;
 import me.kevin.listener.Joinlistener;
+import me.kevin.listener.Placelistener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,6 +43,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
     
     Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
     Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
+    Bukkit.getPluginManager().registerEvents(new Placelistener(), this);
    }
 
     @Override
