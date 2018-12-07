@@ -37,6 +37,7 @@ public class setHigh implements CommandExecutor {
                 
                 plugin.getConfig().set("sethigh", y);
                 
+                p.sendMessage("Höhe gesetzt");
                 
                 
             }

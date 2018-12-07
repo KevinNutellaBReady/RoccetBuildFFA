@@ -42,6 +42,8 @@ public class BuildFFA extends JavaPlugin implements Listener {
         
         getCommand("sethigh").setExecutor(new setHigh(this));
         
+        loadConfig();
+        
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
     
