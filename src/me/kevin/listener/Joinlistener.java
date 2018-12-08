@@ -50,7 +50,7 @@ public class Joinlistener implements Listener {
         p.getInventory().setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
         p.getInventory().setLeggings(new ItemStack(Material.CHAINMAIL_LEGGINGS));
         p.getInventory().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
-        p.getInventory().setLeggings(new ItemStack(Material.CHAINMAIL_HELMET));
+        p.getInventory().setHelmet(new ItemStack(Material.CHAINMAIL_HELMET));
         p.chat("/warp spawn");
         
         
