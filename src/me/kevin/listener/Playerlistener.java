@@ -5,11 +5,13 @@
  */
 package me.kevin.listener;
 
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 
 /**
  *
@@ -29,6 +31,24 @@ public class Playerlistener implements Listener {
       e.setCancelled(false);
     }
         
+    }
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent e) {
+        Player p = e.getPlayer();
+        if(p.getGameMode() == GameMode.CREATIVE) {
+            e.setCancelled(false);
+        } else {
+            e.setCancelled(true);
+        }
+    }
+    @EventHandler
+    public void onPickUP(PlayerDropItemEvent e) {
+        Player p = e.getPlayer();
+        if(p.getGameMode() == GameMode.CREATIVE) {
+            e.setCancelled(false);
+        } else {
+            e.setCancelled(true);
+        }
     }
     
 }
