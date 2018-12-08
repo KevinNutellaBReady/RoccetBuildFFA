@@ -6,9 +6,11 @@
 package me.kevin.listener;
 
 import me.kevin.commands.setHigh;
+import me.kevin.commands.setSpawn;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 /**
@@ -24,6 +26,19 @@ public class Highlistener implements Listener {
         
         if(deathhigh < setHigh.high) {
             p.damage(20);
+        }
+        
+    }
+    @EventHandler
+    public void onDamage(EntityDamageEvent e) {
+        Player p = (Player) e.getEntity();
+        
+        double protection = p.getLocation().getY();
+        
+        if(protection < setSpawn.spawn) {
+            e.setCancelled(false);
+        } else if(setSpawn.spawn < protection) {
+            e.setCancelled(true);
         }
         
     }

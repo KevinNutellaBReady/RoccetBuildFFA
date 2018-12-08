@@ -54,7 +54,6 @@ public class DeathListener implements Listener {
         p.getInventory().setItem(8, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
         p.getInventory().setItem(22, new ItemManager("§cZurück", Material.SLIME_BALL, (byte)0, 1, "").build());
         p.chat("/warp spawn");
-        
     }
     
     
