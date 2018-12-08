@@ -9,6 +9,7 @@ package me.kevin.buildffa;
 import de.dytanic.cloudnet.api.CloudAPI;
 import de.dytanic.cloudnet.bridge.CloudServer;
 import de.dytanic.cloudnet.lib.server.ServerState;
+import me.kevin.commands.Stats;
 import me.kevin.commands.setHigh;
 import me.kevin.listener.Breaklistener;
 import me.kevin.listener.DeathListener;
@@ -42,6 +43,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
         instance = this;
         
         getCommand("sethigh").setExecutor(new setHigh(this));
+        getCommand("stats").setExecutor(new Stats());
         
         loadConfig();
         
