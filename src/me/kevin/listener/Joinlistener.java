@@ -31,6 +31,7 @@ public class Joinlistener implements Listener {
         p.setMaxHealth(20);
         p.setFoodLevel(20);
         p.getInventory().clear();
+        p.getInventory().setArmorContents(null);
         p.getInventory().setItem(0, new ItemManager("§bSchwert", Material.GOLD_SWORD, (byte)0, 1, Enchantment.DURABILITY).build());
         p.getInventory().setItem(2, new ItemManager("§bAngel", Material.FISHING_ROD, (byte)0, 1, "").build());
         ItemStack stick = new ItemStack(Material.STICK);
@@ -46,6 +47,10 @@ public class Joinlistener implements Listener {
         p.getInventory().setItem(7, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
         p.getInventory().setItem(8, new ItemManager("§bBlöcke", Material.SANDSTONE, (byte)0, 64, "").build());
         p.getInventory().setItem(22, new ItemManager("§cZurück", Material.SLIME_BALL, (byte)0, 1, "").build());
+        p.getInventory().setBoots(new ItemStack(Material.CHAINMAIL_BOOTS));
+        p.getInventory().setLeggings(new ItemStack(Material.CHAINMAIL_LEGGINGS));
+        p.getInventory().setChestplate(new ItemStack(Material.IRON_CHESTPLATE));
+        p.getInventory().setLeggings(new ItemStack(Material.CHAINMAIL_HELMET));
         p.chat("/warp spawn");
         
         
