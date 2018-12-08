@@ -7,11 +7,9 @@ package me.kevin.listener;
 
 import me.kevin.buildffa.BuildFFA;
 import me.kevin.commands.setHigh;
-import me.kevin.commands.setSpawn;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 /**
@@ -37,18 +35,6 @@ public class Highlistener implements Listener {
         }
         
     }
-    @EventHandler
-    public void onDamage(EntityDamageEvent e) {
-        Player p = (Player) e.getEntity();
-        
-        double protection = p.getLocation().getY();
-        
-        if(protection > plugin.getConfig().getDouble("spawn")) {
-            e.setCancelled(true);
-        } else if(setSpawn.spawn > plugin.getConfig().getDouble("spawn")) {
-            e.setCancelled(false);
-        }
-        
-    }
+    
     
 }
