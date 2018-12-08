@@ -5,3 +5,4 @@ depend: [CloudNetAPI]
 main: me.kevin.buildffa.BuildFFA
 commands:
     sethigh:
+    setspawn:
