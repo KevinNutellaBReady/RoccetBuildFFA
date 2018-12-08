@@ -5,9 +5,7 @@
  */
 package me.kevin.listener;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.buildffa.BuildFFA;
 import me.kevin.managers.ItemManager;
 import org.bukkit.Material;
@@ -16,7 +14,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -32,6 +29,8 @@ public class DeathListener implements Listener {
              e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7hat sich das leben genommen");
         } else if(p.getKiller() != null) {
              e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7wurde von §b " + p.getKiller().getName() + " §7getötet");
+             PointsAPI.addPoints(p.getKiller(), 2);
+             p.getKiller().sendMessage(BuildFFA.getPrefix() + "§7Du hast 2 Coins bekommen");
         }
         
         p.setHealth(20);

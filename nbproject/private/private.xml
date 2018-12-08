@@ -4,8 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetBuildFFA/src/me/kevin/listener/Joinlistener.java</file>
+            <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetBuildFFA/src/me/kevin/listener/Playerlistener.java</file>
             <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetBuildFFA/src/me/kevin/buildffa/BuildFFA.java</file>
-            <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetBuildFFA/src/me/kevin/listener/DeathListener.java</file>
+            <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetBuildFFA/src/me/kevin/commands/setHigh.java</file>
         </group>
     </open-files>
 </project-private>
