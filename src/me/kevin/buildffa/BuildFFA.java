@@ -16,6 +16,7 @@ import me.kevin.listener.DeathListener;
 import me.kevin.listener.Highlistener;
 import me.kevin.listener.Joinlistener;
 import me.kevin.listener.Placelistener;
+import me.kevin.listener.Playerlistener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -53,6 +54,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new Placelistener(), this);
     Bukkit.getPluginManager().registerEvents(new Breaklistener(), this);
     Bukkit.getPluginManager().registerEvents(new Highlistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Playerlistener(), this);
    }
 
     @Override
