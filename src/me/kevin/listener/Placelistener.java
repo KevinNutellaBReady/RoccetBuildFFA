@@ -30,7 +30,7 @@ public class Placelistener implements Listener {
         {
           @Override
           public void run() {
-            block.setType(Material.REDSTONE_BLOCK);
+            block.setType(Material.RED_SANDSTONE);
             Bukkit.getScheduler().scheduleSyncDelayedTask(BuildFFA.getInstance(), new Runnable()
             {
 
