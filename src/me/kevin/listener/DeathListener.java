@@ -33,7 +33,8 @@ public class DeathListener implements Listener {
              e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7wurde von §b " + p.getKiller().getName() + " §7getötet");
              PointsAPI.addPoints(p.getKiller(), 2);
              p.getKiller().sendMessage(BuildFFA.getPrefix() + "§7Du hast 2 Coins bekommen");
-             StatsManager.addKill(p);
+             StatsManager.addKill(p.getKiller());
+             StatsManager.addDeath(p);
         }
         
         p.setHealth(20);
