@@ -43,10 +43,10 @@ public class Highlistener implements Listener {
         
         double protection = p.getLocation().getY();
         
-        if(protection < plugin.getConfig().getDouble("spawn")) {
-            e.setCancelled(false);
-        } else if(setSpawn.spawn < plugin.getConfig().getDouble("spawn")) {
+        if(protection > plugin.getConfig().getDouble("spawn")) {
             e.setCancelled(true);
+        } else if(setSpawn.spawn > plugin.getConfig().getDouble("spawn")) {
+            e.setCancelled(false);
         }
         
     }
