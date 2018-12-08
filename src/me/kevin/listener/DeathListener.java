@@ -8,6 +8,7 @@ package me.kevin.listener;
 import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.buildffa.BuildFFA;
 import me.kevin.managers.ItemManager;
+import me.kevin.managers.StatsManager;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -27,10 +28,12 @@ public class DeathListener implements Listener {
         Player p =  (Player) e.getEntity();
         if(p.getKiller() == null) {
              e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7hat sich das leben genommen");
+             StatsManager.addDeath(p);
         } else if(p.getKiller() != null) {
              e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7wurde von §b " + p.getKiller().getName() + " §7getötet");
              PointsAPI.addPoints(p.getKiller(), 2);
              p.getKiller().sendMessage(BuildFFA.getPrefix() + "§7Du hast 2 Coins bekommen");
+             StatsManager.addKill(p);
         }
         
         p.setHealth(20);
