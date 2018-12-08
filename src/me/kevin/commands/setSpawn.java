@@ -28,8 +28,8 @@ public class setSpawn implements CommandExecutor {
         if(cmd.getName().equalsIgnoreCase("setspawn")) {
             Player p = (Player)cs; 
             if(p.hasPermission("bffa.setspawn")) {
-                double spawnhigh = p.getLocation().getY();
-                spawn = spawnhigh;
+                double y = p.getLocation().getY();
+                spawn = y;
                 plugin.getConfig().set("spawn", spawn);
                 plugin.saveConfig();
                 p.sendMessage(BuildFFA.getPrefix() + "§7Die Spawn protection wurde gesetzt");

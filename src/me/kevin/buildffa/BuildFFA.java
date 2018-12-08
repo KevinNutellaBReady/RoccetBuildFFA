@@ -55,7 +55,7 @@ public class BuildFFA extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
     Bukkit.getPluginManager().registerEvents(new Placelistener(), this);
     Bukkit.getPluginManager().registerEvents(new Breaklistener(), this);
-    Bukkit.getPluginManager().registerEvents(new Highlistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Highlistener(this), this);
     Bukkit.getPluginManager().registerEvents(new Playerlistener(), this);
    }
 

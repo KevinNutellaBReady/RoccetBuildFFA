@@ -5,6 +5,7 @@
  */
 package me.kevin.listener;
 
+import me.kevin.buildffa.BuildFFA;
 import me.kevin.commands.setHigh;
 import me.kevin.commands.setSpawn;
 import org.bukkit.entity.Player;
@@ -18,6 +19,13 @@ import org.bukkit.event.player.PlayerMoveEvent;
  * @author haral
  */
 public class Highlistener implements Listener {
+    private BuildFFA plugin;
+
+    public Highlistener(BuildFFA plugin) {
+        this.plugin = plugin;
+    }
+    
+    
     @EventHandler
     public void onMove(PlayerMoveEvent e) {
         Player p = e.getPlayer();
@@ -35,9 +43,9 @@ public class Highlistener implements Listener {
         
         double protection = p.getLocation().getY();
         
-        if(protection < setSpawn.spawn) {
+        if(protection < plugin.getConfig().getDouble("spawn")) {
             e.setCancelled(false);
-        } else if(setSpawn.spawn < protection) {
+        } else if(setSpawn.spawn < plugin.getConfig().getDouble("spawn")) {
             e.setCancelled(true);
         }
         
