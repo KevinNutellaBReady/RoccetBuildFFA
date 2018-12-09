@@ -25,7 +25,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class DeathListener implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
-        Player p =  (Player) e.getEntity();
+        Player p = (Player) e.getEntity();
         if(p.getKiller() == null) {
              e.setDeathMessage(BuildFFA.getPrefix() + "§7Der Spieler §b " + p.getName() + " §7hat sich das leben genommen");
              StatsManager.addDeath(p);
